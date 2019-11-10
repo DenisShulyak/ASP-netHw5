@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewBag.Title = "index";
+    var wall = ViewBag.Wall;
+}
+
+<h2>Wall</h2>
+<style>
+    .block {
+        width: 300px;
+        height: 200px;
+        margin-bottom: 20px;
+        border: 1px solid black;
+        /*
+            float:left;*/
+    }
+</style>
+
+
+<div id="data">
+    @foreach (var record in wall)
+    {
+        <div class="block">
+            <h3>@record.Nickname</h3>
+            <p>@record.Text</p>
+        </div>
+    }
+</div>
+
+<form id="form" name="form">
+
+    <input name="nick" id="nick" type="text" placeholder="Введите ваш Nickname:" />
+    <br />
+    <br />
+
+<textarea name="text" id="text" placeholder="Введите вашу запись:"></textarea>
+    <br />
+    <br />
+    <!--<input id="btn1" type="submit" value="Записать" />-->
+    <button id="btn">Записать</button>
+</form>
+
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+<script>
+
+    $(function () {
+        $("#btn").on('click', function (e) {
+            $.ajax
+                ({
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    url: "Create",
+                    data: "{'nick':'" + $('#nick').val() + "', 'text':'" + $('#text').val() + "'}",
+                    dataType: "json",
+                    success: function (msg) {
+                        console.log(msg);
+                    },
+                    error: function (response) {
+                        $("body").empty();
+                        $("body").html(response.responseText);
+                    }
+                });
+            e.preventDefault();
+        });
+
+    });
+
+</script>
+
+<script>
+    /*
+    function Add() {
+
+        //Nickname: $("#nick").val(),
+        // Text: Text.val();
+        var obj = {
+            table: []
+        };
+        obj.table.push({ Nickname: $("#nick").val(),Text: $("#text").val()});
+
+        var json = JSON.stringify(obj);
+
+        var fs = require('fs');
+        fs.writeFile('myjsonfile.json', json, 'utf8', callback);
+
+
+        fs.readFile('myjsonfile.json', 'utf8', function readFileCallback(err, data) {
+            if (err) {
+                console.log(err);
+            } else {
+                obj = JSON.parse(data); //now it an object
+                obj.table.push({ id: 2, square: 3 }); //add some data
+                json = JSON.stringify(obj); //convert it back to json
+                fs.writeFile('myjsonfile.json', json, 'utf8', callback); // write it back
+            }
+        });
+    }
+    */
+
+
+
+
+
+
+
+
+
+    /*    $('#btn').click(function(){
+            $.ajax({
+                url: "page.html",
+                cache: false,
+                success: function(html){
+                    $("#content").html(html);
+                }
+            });
+        });
+
+
+
+
+   .*/
+</script>
+

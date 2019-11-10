@@ -1,0 +1,37 @@
+﻿[
+  {
+    "name": "product1",
+    "type": "type1",
+    "price": "price1",
+    "year": "year1",
+    "shelfLife": "dead1"
+  },
+  {
+    "name": "product2",
+    "type": "type2",
+    "price": "price2",
+    "year": "year2",
+    "shelfLife": "dead2"
+  },
+  {
+    "name": "product3",
+    "type": "type3",
+    "price": "price3",
+    "year": "year3",
+    "shelfLife": "dead3"
+  },
+  {
+    "name": "product4",
+    "type": "type4",
+    "price": "price4",
+    "year": "yea4",
+    "shelfLife": "dead4"
+  },
+  {
+    "name": "product5",
+    "type": "type5",
+    "price": "price5",
+    "year": "year5",
+    "shelfLife": "dead5"
+  }
+]
